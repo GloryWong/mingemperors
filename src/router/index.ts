@@ -1,33 +1,40 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
+import MainLayout from '@/layout/MainLayout.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
-  },
-  {
-    path: '/tabs/',
-    component: TabsPage,
+    component: MainLayout,
     children: [
       {
         path: '',
-        redirect: '/tabs/tab1'
+        redirect: {
+          name: 'Home'
+        }
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: 'home',
+        name: 'Home',
+        component: () => import('@/views/HomePage.vue')
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: 'emperors',
+        name: 'EmperorsPage',
+        component: () => import('@/views/EmperorsPage.vue'),
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
+        path: 'emperor/:name?',
+        name: 'EmperorDetailPage',
+        component: () => import('@/views/EmperorDetailPage.vue'),
+        props: true
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/NotFoundPage.vue')
   }
 ]
 
