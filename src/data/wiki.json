@@ -1,0 +1,12 @@
+[
+    {
+        "id": "baidubaike",
+        "name": "百度百科",
+        "urlPrefix": "https://baike.baidu.com/item/"
+    },
+    {
+        "id": "wikipedia",
+        "name": "维基百科",
+        "urlPrefix": "https://zh.wikipedia.org/wiki/"
+    }
+]

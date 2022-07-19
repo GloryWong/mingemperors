@@ -21,6 +21,12 @@
 import { IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/vue';
 import { diceOutline, listOutline, newspaperOutline } from 'ionicons/icons';
 import { useGlobalState } from '@/composables/useGlobalState';
+import { useRoute } from 'vue-router';
+import { watch } from 'vue';
 
-const { viewingName } = useGlobalState();
+const { viewingName, updateViewingName } = useGlobalState();
+const route = useRoute();
+watch(() => route.params, ({ name }) => {
+    name && updateViewingName(name as string);
+});
 </script>
