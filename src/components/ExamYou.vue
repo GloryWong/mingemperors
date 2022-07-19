@@ -14,10 +14,10 @@
             </ion-card-header>
             <ion-card-content>
                 <ion-list class="list">
-                    <ion-radio-group @ionChange="handleChoiceChange" allowEmptySelection>
+                    <ion-radio-group @ionChange="handleChoiceChange" allowEmptySelection v-model="value">
                         <ion-item v-for="choice, index in choices" :key="index">
-                            <ion-label :color="`${correctChoice === choice ? 'primary' : wrongChoice === choice ? 'danger' : ''}`">{{ choice }}</ion-label>
-                            <ion-radio slot="start" :value="choice" :color="`${correctChoice === choice ? 'primary' : wrongChoice === choice ? 'danger' : ''}`" />
+                            <ion-label :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`">{{ choice }}</ion-label>
+                            <ion-radio slot="start" :value="choice" :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`" />
                         </ion-item>
                     </ion-radio-group>
                 </ion-list>
@@ -77,9 +77,11 @@
 <script setup lang="ts">
 import { IonButtons, IonIcon, IonCard, IonNote, IonButton, IonCardHeader, IonLabel, IonRadio, IonRadioGroup, IonList, IonItem, IonListHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/vue';
 import { useExamGenerator, Question, Choices } from '@/composables/useExamGenerator';
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { happyOutline, skullOutline, refreshOutline, arrowForwardOutline } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
+
+const value = ref('');
 
 const generate = useExamGenerator();
 const question = ref<Question>();
@@ -99,10 +101,12 @@ const resetStatus = () => {
     wrongChoice.value = '';
     correct.value = false;
     finishedOneRound.value = false;
+    value.value = '';
 };
 
 const handleChoiceChange = (event: CustomEvent) => {
     const choice = event.detail.value;
+    if (choice === '') return;
     if (choice === answer.value) {
         correctChoice.value = choice;
         correct.value = true;
