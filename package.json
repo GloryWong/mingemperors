@@ -1,8 +1,9 @@
 {
   "name": "mingemperors",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
-  "description": "An Ionic project",
+  "description": "16 emperors of the great Ming Dynasty",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

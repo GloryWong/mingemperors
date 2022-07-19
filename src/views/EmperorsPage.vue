@@ -7,5 +7,4 @@
 <script lang="ts" setup>
 import EmperorsTable from '@/components/EmperorsTable.vue';
 import PageLayout from '@/layout/PageLayout.vue';
-import { IonSearchbar } from '@ionic/vue';
 </script>
