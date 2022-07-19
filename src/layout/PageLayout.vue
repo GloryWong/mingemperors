@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>{{ props.title }}</ion-title>
-        <ion-item slot="primary">
+        <ion-item slot="end">
           <slot name="extra" />
         </ion-item>
       </ion-toolbar>
@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { defineProps, withDefaults } from 'vue';
-import { IonPage, IonItem, IonContent, IonHeader, IonToolbar, IonTitle, IonProgressBar } from '@ionic/vue';
+import { IonPage, IonImg, IonItem, IonContent, IonHeader, IonToolbar, IonTitle, IonProgressBar } from '@ionic/vue';
 
 const props = withDefaults(defineProps<{
     title: string,
