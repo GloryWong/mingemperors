@@ -1,15 +1,15 @@
 <template>
     <div id="container">
         <ion-card class="card" :style="{
-            backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/A_Seated_Portrait_of_Ming_Emperor_Taizu.jpg/1024px-A_Seated_Portrait_of_Ming_Emperor_Taizu.jpg)`,
+            backgroundImage: `url(assets/imgs/${emperorName}.jpeg)`,
             pointerEvents: finishedOneRound ? 'none' : 'auto'
             }">
             <ion-card-header>
                 <ion-card-title>
-                    <h1>{{ title }}</h1>
+                    <h1 class="title">{{ title }}</h1>
                 </ion-card-title>
-                <ion-card-subtitle color="primary">
-                    <h2>的{{ subtitle }}是？</h2>
+                <ion-card-subtitle color="secondary">
+                    <h2 class="title">的{{ subtitle }}是？</h2>
                 </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
@@ -57,6 +57,10 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.title {
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%), 0px 0px 1px rgb(255 255 255 / 80%);
 }
 
 .list {

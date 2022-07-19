@@ -3,7 +3,7 @@
     <ion-content :fullscreen="true">
       <div class="warning">
         <ion-icon :icon="alertCircleOutline" size="large" />
-        <ion-label class="ion-margin-start">页面不从在<RouterLink :to="{name: 'Home'}">Return Home</RouterLink></ion-label>
+        <ion-label class="ion-margin-start">页面不从在<RouterLink :to="{name: 'Home'}">去往测验</RouterLink></ion-label>
       </div>
     </ion-content>
   </ion-page>
