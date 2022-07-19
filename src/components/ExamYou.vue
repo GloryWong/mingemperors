@@ -9,7 +9,7 @@
                     <h1 class="title">{{ title }}</h1>
                 </ion-card-title>
                 <ion-card-subtitle color="secondary">
-                    <h2 class="title">的{{ subtitle }}是？</h2>
+                    <h2 class="subtitle">的{{ subtitle }}是？</h2>
                 </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
@@ -60,11 +60,16 @@
 }
 
 .title {
-  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%), 0px 0px 1px rgb(255 255 255 / 80%);
+    color: #dbdbdb;
 }
+.title, .subtitle {
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 80%), 0px 0px 1px rgb(255 255 255 / 80%);
+}
+    
 
 .list {
-    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 @media (prefers-color-scheme: dark) {
     .list {

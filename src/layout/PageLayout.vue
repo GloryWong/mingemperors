@@ -1,11 +1,11 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar color="primary">
         <ion-title>{{ props.title }}</ion-title>
-        <ion-item slot="end">
+        <div slot="end" style="padding-right: 20px;">
           <slot name="extra" />
-        </ion-item>
+        </div>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { defineProps, withDefaults } from 'vue';
-import { IonPage, IonImg, IonItem, IonContent, IonHeader, IonToolbar, IonTitle, IonProgressBar } from '@ionic/vue';
+import { IonPage, IonItem, IonContent, IonHeader, IonToolbar, IonTitle, IonProgressBar } from '@ionic/vue';
 
 const props = withDefaults(defineProps<{
     title: string,

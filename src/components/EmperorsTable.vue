@@ -1,7 +1,7 @@
 <template>
     <div id="emperorsTable">
-        <ion-list lines="full">
-            <ion-list-header color="medium">
+        <ion-list lines="full" style="padding: 0;">
+            <ion-list-header color="medium" class="ion-text-center">
                 <ion-label v-for="item, index in header" :key="index" class="ion-text-center">{{ item }}</ion-label>
             </ion-list-header>
             <ion-item v-for="emperor, index in emperors" :key="index"
