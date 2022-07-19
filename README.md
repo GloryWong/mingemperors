@@ -4,7 +4,7 @@
 
 Interested in the funny, hilarious, and odd Ming emperors? Let's study the 16 emperors of the great Ming Dynasty.
 
-[Web App adrress](https://mingemperors.zhaozhao.today)
+Mobile Web App [Web App adrress](https://mingemperors.zhaozhao.today)
 
 ### License
 
