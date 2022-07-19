@@ -10,11 +10,11 @@
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-progress-bar type="indeterminate" slot="fixed" v-show="props.useProgressBar && props.progressBarVisible" color="primary" />
-      <ion-header collapse="condense">
+      <!-- <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">{{ props.title }}</ion-title>
         </ion-toolbar>
-      </ion-header>
+      </ion-header> -->
     
       <slot />
     </ion-content>
