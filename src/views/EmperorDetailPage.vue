@@ -1,5 +1,5 @@
 <template>
-<page-layout :title="title" :useProgressBar="true" :progressBarVisible="showLoading">
+<async-page-layout :title="title" :useProgressBar="true" :progressBarVisible="showLoading">
   <template #extra>
     <ion-select interface="popover" v-model="wikiId" @ionChange="handleWikiUrlPrefixChange">
       <ion-select-option v-for="item in wikiData" :key="item.id" :value="item.id">{{ item.name }}</ion-select-option>
@@ -10,7 +10,7 @@
     <ion-icon :icon="alertCircleOutline" size="large" />
     <ion-label class="ion-margin-start" color="medium">去<RouterLink :to="{ name: 'EmperorsPage'}">皇帝列表</RouterLink>选择一个浏览</ion-label>
   </div>
-</page-layout>
+</async-page-layout>
 </template>
 
 <style scoped>
@@ -33,9 +33,10 @@ import { computed, defineProps, onMounted, ref } from 'vue';
 import { IonIcon, IonLabel, IonSelect, IonSelectOption } from '@ionic/vue';
 import { alertCircleOutline } from 'ionicons/icons';
 import { RouterLink } from 'vue-router';
-import PageLayout from '@/layout/PageLayout.vue';
+// import PageLayout from '@/layout/PageLayout.vue';
 import emperors from '@/data/emperors.json';
 import { useWiki, wikiData } from '@/composables/useWiki';
+import AsyncPageLayout from '@/layout/AsyncPageLayout';
 
 const props = defineProps<{
   name: string
