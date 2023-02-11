@@ -7,3 +7,8 @@
   for = "/service-worker.js"
   [[headers.value]]
     cache-control = "no-cache"
+
+[[headers]]
+  for = "/precache-manifest.*.js"
+  [[headers.value]]
+    cache-control = "no-cache"
