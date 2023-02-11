@@ -14,13 +14,15 @@
                 </ion-label>
             </ion-item>
         </ion-list>
+        <ModalWiki :name="emperorName" v-model="modalOpen"></ModalWiki>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { IonList, IonItem, IonLabel, IonListHeader } from '@ionic/vue';
-import { useRouter } from 'vue-router';
 import emperors from '@/data/emperors.json';
+import ModalWiki from './ModalWiki.vue';
+import { ref } from 'vue';
 
 const header = [
     '姓名',
@@ -28,14 +30,10 @@ const header = [
     '庙号',
 ];
 
-const router = useRouter();
+const emperorName = ref('');
+const modalOpen = ref(false);
 const handleClickItem = (emperor: string[]) => {
-    router.push({
-        name: 'EmperorDetailPage',
-        params: {
-            name: emperor[0]
-        }
-    });
+    emperorName.value = emperor[0];
+    modalOpen.value = true;
 };
-
 </script>

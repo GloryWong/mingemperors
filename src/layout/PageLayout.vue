@@ -3,18 +3,15 @@
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>{{ props.title }}</ion-title>
-        <div slot="end" style="padding-right: 20px;">
-          <slot name="extra" />
-        </div>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <ion-progress-bar type="indeterminate" slot="fixed" v-show="props.useProgressBar && props.progressBarVisible" color="primary" />
-      <!-- <ion-header collapse="condense">
+      <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">{{ props.title }}</ion-title>
         </ion-toolbar>
-      </ion-header> -->
+      </ion-header>
     
       <slot />
     </ion-content>

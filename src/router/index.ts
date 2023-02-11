@@ -5,30 +5,31 @@ import MainLayout from '@/layout/MainLayout.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    redirect: {
+      name: 'Home'
+    },
+  },
+  {
+    path: '/',
     component: MainLayout,
     children: [
       {
         path: '',
+        name: 'Home',
         redirect: {
-          name: 'Home'
+          name: 'Exam'
         }
       },
       {
-        path: 'home',
-        name: 'Home',
-        component: () => import('@/views/HomePage.vue')
+        path: 'exam',
+        name: 'Exam',
+        component: () => import('@/views/ExamPage.vue')
       },
       {
         path: 'emperors',
         name: 'EmperorsPage',
         component: () => import('@/views/EmperorsPage.vue'),
       },
-      {
-        path: 'emperor/:name?',
-        name: 'EmperorDetailPage',
-        component: () => import('@/views/EmperorDetailPage.vue'),
-        props: true
-      }
     ]
   },
   {

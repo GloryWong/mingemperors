@@ -43,9 +43,10 @@
                         <ion-icon :icon="refreshOutline" />
                         下一题
                     </ion-button>
-                    <ion-button color="medium" @click="toWikipedia">
+                    <ion-button color="medium" @click="modalOpen = true">
                         <ion-icon :icon="arrowForwardOutline" />
-                    去了解{{title}}</ion-button>
+                    了解{{title}}</ion-button>
+                    <ModalWiki :name="emperorName" v-model="modalOpen"></ModalWiki>
                 </ion-buttons>
             </ion-item>
         </div>
@@ -89,6 +90,7 @@ import { useExamGenerator, Question, Choices } from '@/composables/useExamGenera
 import { computed, ref, watch } from 'vue';
 import { happyOutline, skullOutline, refreshOutline, arrowForwardOutline } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
+import ModalWiki from './ModalWiki.vue';
 
 const value = ref('');
 
@@ -134,10 +136,7 @@ const newExam = () => {
     choices.value = exam.choices;
 };
 
-const router = useRouter();
-const toWikipedia = () => {
-    router.push({ name: 'EmperorDetailPage', params: { name: emperorName.value } });
-};
+const modalOpen = ref(false);
 
 newExam();
 </script>
