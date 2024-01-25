@@ -8,5 +8,10 @@
         "id": "wikipedia",
         "name": "维基百科",
         "urlPrefix": "https://zh.wikipedia.org/wiki/"
+    },
+    {
+        "id": "qiuwenbaike",
+        "name": "求闻百科",
+        "urlPrefix": "https://www.qiuwenbaike.cn/wiki/"
     }
 ]

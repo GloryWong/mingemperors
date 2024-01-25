@@ -7,7 +7,6 @@
             <ion-item v-for="emperor, index in emperors" :key="index"
                 class="ion-text-center"
                 button
-                fill="solid"
                 @click="handleClickItem(emperor)">
                 <ion-label v-for="item, index in emperor" :key="index">
                     {{ item }}

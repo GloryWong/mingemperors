@@ -3,9 +3,9 @@
     <ion-header>
       <IonToolbar>
         <ion-select slot="start" interface="popover" v-model="wikiId" @ionChange="handleWikiUrlPrefixChange">
-          <ion-select-option v-for="item in wikiData" :key="item.id" :value="item.id">{{ item.name }}</ion-select-option>
+          <ion-select-option v-for="item in wikiSites" :key="item.id" :value="item.id">{{ item.name }}</ion-select-option>
         </ion-select>
-        <IonTitle>{{ title }}</IonTitle>
+        <IonTitle class="ion-text-center">{{ name }}</IonTitle>
         <IonButtons slot="end">
           <IonButton @click="isOpen = false">关闭</IonButton>
         </IonButtons>
@@ -29,7 +29,7 @@ iframe {
 <script lang="ts" setup>
 import { computed, defineProps, defineEmits, onMounted, ref, watch, onUnmounted } from 'vue';
 import { IonIcon, IonLabel, IonProgressBar, IonModal, IonHeader, IonSelect, IonSelectOption, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonSpinner, IonLoading } from '@ionic/vue';
-import { useWiki, wikiData } from '@/composables/useWiki';
+import { useWiki, wikiSites } from '@/composables/useWiki';
 
 const props = defineProps<{
   name: string,
@@ -56,8 +56,6 @@ const handleWikiUrlPrefixChange = (event: CustomEvent) => {
 const wikiIFrame = ref<HTMLIFrameElement | null>(null);
 const isWikiIFrameLoaded = ref(false);
 const showLoading = computed(() => !isWikiIFrameLoaded.value);
-const prefix = '皇帝百科 - ';
-const title = computed(() => `${prefix}${props.name}`);
 
 const onDidPresent = () => isWikiIFrameLoaded.value = false;
 

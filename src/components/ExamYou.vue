@@ -15,9 +15,10 @@
             <ion-card-content>
                 <ion-list class="list">
                     <ion-radio-group @ionChange="handleChoiceChange" allowEmptySelection v-model="value">
-                        <ion-item v-for="choice, index in choices" :key="index">
-                            <ion-label :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`">{{ choice }}</ion-label>
-                            <ion-radio slot="start" :value="choice" :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`" />
+                        <ion-item v-for="choice, index in choices" :key="index" lines="none">
+                            <ion-radio slot="start" labelPlacement="end" :value="choice" :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`">
+                                <ion-label :color="`${correctChoice === choice ? 'success' : wrongChoice === choice ? 'danger' : ''}`">{{ choice }}</ion-label>
+                            </ion-radio>
                         </ion-item>
                     </ion-radio-group>
                 </ion-list>
@@ -70,16 +71,17 @@
 
 .list {
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
 }
 @media (prefers-color-scheme: dark) {
     .list {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.2);
     }
 }
 
 
-:deep([role="listitem"]) {
+:deep(ion-item) {
     --background: transparent;
 }
 </style>

@@ -1,17 +1,19 @@
 import { createSharedComposable } from "@vueuse/core";
-import wikiData from "@/data/wiki.json";
+import wikiSites from "@/data/wiki-sites.json";
 import { computed, readonly, ref } from 'vue';
 
 export const getWikiPrefxById = (id: string) => 
-    wikiData.find(item => item.id === id);
+    wikiSites.find(item => item.id === id);
 
-export { wikiData };
+export { wikiSites };
+
+const STORAGE_SITE_KEY = 'mingemperors-wiki-site-id';
 
 export const useWiki = createSharedComposable(() => {
-    const wikiId = ref(localStorage.getItem('mingemperors-wiki-id') ?? wikiData[0].id);
-    const updateWikiId = (index: string) => {
-        wikiId.value = index;
-        localStorage.setItem('mingemperors-wiki-id', index);
+    const wikiId = ref(localStorage.getItem(STORAGE_SITE_KEY) ?? wikiSites[0].id);
+    const updateWikiId = (id: string) => {
+        wikiId.value = id;
+        localStorage.setItem(STORAGE_SITE_KEY, id);
     }
 
     const wikiUrlPrefix = computed(() => getWikiPrefxById(wikiId.value)?.urlPrefix);
