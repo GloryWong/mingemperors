@@ -2,9 +2,13 @@
   <ion-modal :is-open="isOpen" @didPresent="onDidPresent" @didDismiss="onDidDismiss">
     <ion-header>
       <IonToolbar>
-        <ion-select slot="start" interface="popover" v-model="wikiId" @ionChange="handleWikiUrlPrefixChange">
-          <ion-select-option v-for="item in wikiSites" :key="item.id" :value="item.id">{{ item.name }}</ion-select-option>
-        </ion-select>
+        <ion-list slot="start">
+          <ion-item>
+              <ion-select interface="popover" v-model="wikiId" @ionChange="handleWikiUrlPrefixChange">
+                <ion-select-option v-for="item in wikiSites" :key="item.id" :value="item.id">{{ item.name }}</ion-select-option>
+              </ion-select>
+          </ion-item>
+        </ion-list>
         <IonTitle class="ion-text-center">{{ name }}</IonTitle>
         <IonButtons slot="end">
           <IonButton @click="isOpen = false">关闭</IonButton>
@@ -28,7 +32,7 @@ iframe {
 
 <script lang="ts" setup>
 import { computed, defineProps, defineEmits, onMounted, ref, watch, onUnmounted } from 'vue';
-import { IonIcon, IonLabel, IonProgressBar, IonModal, IonHeader, IonSelect, IonSelectOption, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonSpinner, IonLoading } from '@ionic/vue';
+import { IonList, IonItem, IonProgressBar, IonModal, IonHeader, IonSelect, IonSelectOption, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonSpinner, IonLoading } from '@ionic/vue';
 import { useWiki, wikiSites } from '@/composables/useWiki';
 
 const props = defineProps<{
